@@ -1,6 +1,7 @@
 **INTEGRANTES:**
 
 **_Juan Mauricio Illanes Chipana_**
+**_Sergio Fernando Prudencio Veliz_**
 
 # Proyecto BOT de Ingeniería de Software.
 
