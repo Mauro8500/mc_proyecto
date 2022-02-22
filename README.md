@@ -13,7 +13,7 @@ Este documento muestra las especificaciones de un proyecto para la **Reserva de 
 ## Problemática
 
 
-## Valor el valor que el proyecto va a dar a la empresa.
+## Valor agregado que el proyecto brinda a la empresa.
 El presente proyecto permite dar una solucion moderna al Club de videos mediante:
 
 * Automatiza el proceso de renta de videos.
