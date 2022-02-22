@@ -22,7 +22,7 @@ El presente proyecto permite dar una solucion moderna al Club de videos mediante
 
 * Permite hacer busquedas por actor o pelicula de forma remota.
 
-* Genera una ventaja competitiva al contar con un chat iteractivo.
+* Genera una ventaja competitiva al contar con un chat interactivo.
 
 
 ## Ejemplo de funcionamiento del BOT
