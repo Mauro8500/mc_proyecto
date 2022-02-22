@@ -1,6 +1,7 @@
 **INTEGRANTES:**
 
 **_Juan Mauricio Illanes Chipana_**
+
 **_Sergio Fernando Prudencio Veliz_**
 
 # Proyecto BOT de Ingeniería de Software.
@@ -13,6 +14,15 @@ Este documento muestra las especificaciones de un proyecto para la **Reserva de 
 
 
 ## Valor el valor que el proyecto va a dar a la empresa.
+El presente proyecto permite dar una solucion moderna al Club de videos mediante:
+
+* Automatiza el proceso de renta de videos.
+
+* Permite ver la disponibilidad de los Videos de forma remota.
+
+* Permite hacer busquedas por actor o pelicula de forma remota.
+
+* Genera una ventaja competitiva al contar con un chat iteractivo.
 
 
 ## Ejemplo de funcionamiento del BOT
