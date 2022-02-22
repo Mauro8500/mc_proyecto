@@ -3,6 +3,7 @@
 **_Juan Mauricio Illanes Chipana_**
 
 **_Sergio Fernando Prudencio Veliz_**
+
 **_Damaris Kasandra Blas Ayllon_**
 # Proyecto BOT de Ingeniería de Software.
 
@@ -15,7 +16,9 @@ El club de video "Don Lucho" tiene mas de 200 videos, debido a esta gran cantida
 * La consulta de los videos que se tiene.
 * Reserva de videos.
 * Observar la disponibilidad de videos.
+
 Y tambien se quisiera poder clasificar las peliculas por actores y titulos.
+
 Este club de videos demora en la busqueda de los videos y esto ocaciona una perdida de tiempo y por ende una regular atencion al cliente.
 
 ## Valor agregado que el proyecto brinda a la empresa.
