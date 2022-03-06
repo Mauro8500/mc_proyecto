@@ -1,6 +1,6 @@
 **INTEGRANTES:**
 
-**_Juan Mauricio Illanes Chipana_**
+**_Juan Mauricio Illanes Chipana..._**
 
 **_Sergio Fernando Prudencio Veliz_**
 
