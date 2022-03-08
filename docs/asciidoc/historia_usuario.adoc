@@ -1,0 +1,141 @@
+= {product} - Histórias de Usuario
+Universidad Católica Boliviana. 
+1.0.0
+:product: BOT CLUB DE VIDEOS
+
+## Introducción
+El presente documentO tendrá el detalle de todas las historías de usuario para la construcción de un BOT de CLUB DE VIDEOS.
+
+Se ha establecido que la funcionalidad mínima para la implementación será:
+
+Para el club de videos:
+
+    1. Registrar un video con fotografías, actores, genero, año, premios.
+    2. Registrar el alquiler un video.
+    3. Registrar la perdida o no devolución de un video.
+    4. Revisar los videos que están pendientes de devolución.
+    5. Listado de películas pendientes de entrega.
+
+Para los clientes:
+
+     1. Buscar películas por nombre, título, actores, géneros o premios.
+     2. Reservar una película simulando un método pago.
+
+## Historias de Usuario.
+
+### 100 - Buscar películas
+
+*Autor*: Juan Mauricio Illanes Chipana
+
+*Fecha*: 7/03/2022
+
+*Prioridad*: ALTA
+
+#### Descripción
+
+
+Como `Cliente` del club de videos, necesito conocer las películas que se encuentran disponibles en el club, quiero realizar la búsqueda de una película con base en su `título`, algún `actor` que actúe en ella, `generos` o `premios`. Adicionalmente, quiero saber si las películas están agotadas o disponibles, además él `BOT` debe tomar en cuenta los siguientes aspectos:
+
+ * La disponibilidad de las películas
+ * Las fotografías de cada una de las películas que se consulten
+ * La clasificación de la película que se consulte
+ * Nombres de los actores(aunque sea sin el apellido)
+ * Numero de premios obtenidos registrados
+
+La búsqueda pasará pos los siguientes estados:
+
+  * *SOLICITADO*: Cuando el cliente envía su consulta al BOT y el BOT no la rechaza.
+  * *EXITO*: Cuando el BOT muestra el resultado de la búsqueda.
+  * *FALLIDO*: Solicitud rechazada por club
+  * *NO VALIDO*: El cliente introduce caracteres no validos
+
+El diagrama de estados para la `BUSQUEDA` será:
+
+[plantuml, format="png", id="estados-solicitud"]
+....
+@startuml
+[*] --> SOLICITADO
+SOLICITADO --> EXITO
+EXITO --> [*]
+SOLICITADO -> FALLIDO
+FALLIDO --> [*]
+SOLICITADO -> NO_VALIDO
+NO_VALIDO --> [*]
+@enduml
+....
+
+#### Escenarios
+1. El cliente no introduce bien el nombre de la película.
+2. El cliente hace búsquedas en dias que no se hizo inventario.
+3. Películas solicitadas al mismo tiempo.
+
+#### Casos de Prueba
+
+*100.1.1 Buscar por titulo*
+
+Descripción: Se prueba la respuesta del sistema cuando el usuario busca una película con base en su título.
+
+Pasos:
+
+ 1. Ingresar al BOT via Telegram y enviar el comando /hola
+    - Datos: comando /hola
+    - Resultado esperado: El BOT retorna un mensaje. "Hola puedes buscar tu película por:" mostrando diferentes categorias(actor, título, premios, género).
+ 2. El cliente busca una pelicula por su titulo
+    - Datos: coloca `Titulo`
+    - Resultado esperado: El BOT retorna un mensaje. "Esta bien, introduzca el nombre del titulo:".
+ 3. El `BOT` muestra la lista de peliculas
+    - Datos: coloca `Star wars`
+    - Resultado esperado: El BOT retorna una lista de todas las peliculas bajo ese nombre.
+
+
+*100.1.2 Buscar por actor*
+
+Descripción: Se prueba la respuesta del sistema cuando el usuario busca una película en base a su actor.
+
+Pasos:
+
+ 1. Ingresar al BOT via Telegram y enviar el comando /hola
+    - Datos: comando /hola
+    - Resultado esperado: El BOT retorna un mensaje. "Hola puedes buscar tu pelicula por:" mostrando diferentes categorias(actor, título, premios, género).
+ 2. El cliente busca una pelicula por su actor
+    - Datos: coloca `Actor`
+    - Resultado esperado: El BOT retorna un mensaje. "Esta bien, introduzca el nombre del actor:".
+ 3. El `BOT` muestra la lista de peliculas
+    - Datos: coloca `DWAYNE JOHNSON`
+    - Resultado esperado: El BOT retorna una lista de todas las peliculas bajo ese actor.
+
+*100.1.3 Buscar por genero*
+
+Descripción: Se prueba la respuesta del sistema cuando el usuario busca una película en base a su genero.
+
+Pasos:
+
+ 1. Ingresar al BOT via Telegram y enviar el comando /hola
+    - Datos: comando /hola
+    - Resultado esperado: El BOT retorna un mensaje. "Hola puedes buscar tu pelicula por:" mostrando diferentes categorias(actor, título, premios, género).
+ 2. El cliente busca una pelicula por su genero
+    - Datos: coloca `Genero`
+    - Resultado esperado: El BOT retorna un mensaje. "Esta bien, introduzca el nombre del genero:".
+ 3. El `BOT` muestra la lista de peliculas
+    - Datos: coloca `Terror`
+    - Resultado esperado: El BOT retorna una lista de todas las peliculas bajo ese genero.
+
+*100.1.4 Buscar por premios*
+
+Descripción: Se prueba la respuesta del sistema cuando el usuario busca una película en base a sus premios.
+
+Pasos:
+
+ 1. Ingresar al BOT via Telegram y enviar el comando /hola
+    - Datos: comando /hola
+    - Resultado esperado: El BOT retorna un mensaje. "Hola puedes buscar tu pelicula por:" mostrando diferentes categorias(actor, título, premios, género).
+ 2. El cliente busca una pelicula por su genero
+    - Datos: coloca `Premios`
+    - Resultado esperado: El BOT retorna un mensaje. "Esta bien, introduzca el número de premios:".
+ 3. El `BOT` muestra la lista de peliculas
+    - Datos: coloca `9`
+    - Resultado esperado: El BOT retorna una lista de todas las peliculas que tengan esa cantidad de premios.
+
+
+
+
