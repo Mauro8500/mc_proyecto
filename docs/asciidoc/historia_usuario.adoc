@@ -259,4 +259,50 @@ Pasos:
 - Datos: NINGUNO
 - Resultado esperado: El BOT retorna un mensaje. "El video ya no se encuentra disponible"
 
+### 103 - Perdida o no devolucion de una pelicula
+*Autor*: Damaris Blas
+
+*Fecha*: 08/03/2022
+
+*Prioridad*: ALTA
+
+#### Descripción
+Como cliente del club de videos requiero conocer el procedimiento en caso de una perdida o no devolucion de un video. El bot tiene que tener en cuenta:
+ * Historial reciente de peliculas prestadas por el cliente
+ * El estado de cada pelicula (Devuelto o NO devuelto)
+ * Dias de atraso en la devolucion de una pelicula.
+
+### Escenarios
+El cliente escribe mal el nombre de la pelicula perdida
+El cliente escribe mal su CI
+
+
+### Casos de prueba
+*102.1 Peliculas que no se devolvio*
+
+Descripcion:  Se prueba la respuesta del sistema cuando el cliente busca las peliculas que no devolvio.
+
+Pasos:
+
+1. Ingresar al Bot via Telegram y enviar el ci del cliente
+ - Datos: coloca CI
+ - Resultado eperado: El Bot retorna un mensaje de bienvenida.
+
+2. El cliente busca las peliculas que no devolvio
+- Datos: comando /PeliculasNoDevueltas
+- Resultado esperado: El bot retorna una lista de las peliculas que el cliente aun no ha devuelto, tambien mostrara los dias de atraso que se tiene.
+
+*102.2 Peliculas perdidas*
+Descripcion: Se prueba la respuesta del sistema cuando un cliente pierde una pelicula.
+Pasos:
+1. Ingresar al Bot via Telegram y enviar el ci del cliente
+ - Datos: coloca CI
+ - Resultado eperado: El Bot retorna un mensaje de bienvenida.
+2. El cliente busca las peliculas que no devolvio
+- Datos: comando /PeliculasNoDevueltas
+- Resultado esperado: El bot retorna una lista de las peliculas que el cliente aun no ha devuelto, tambien mostrara los dias de atraso que se tiene.
+
+3. El cliente busca la pelicula que perdio
+- Datos: coloca Pelicula no devuelta
+- Resulatdo esperado: El bot registrara en el historial del cliente esa pelicula perdida.
 
