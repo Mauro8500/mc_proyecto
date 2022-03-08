@@ -136,6 +136,127 @@ Pasos:
     - Datos: coloca `9`
     - Resultado esperado: El BOT retorna una lista de todas las peliculas que tengan esa cantidad de premios.
 
+### 102 - Registro de alquiler de videos
 
+*Autor*: Sergio Fernando Prudencio Veliz
+
+*Fecha*: 08/03/2022
+
+*Prioridad*: MUY ALTA
+
+#### Descripción
+
+Un `Cliente` debe poder solicitar su registro de alquiler en el sistema por medio del BOT, al momento de solicitar su registro, el cliente deberá enviar la siguiente información:
+
+*   Nombre
+*   Apellido
+*   Email
+*   Carnet identidad
+*   Titulo Pelicula
+
+Esta información es guardara en BBDD y se coloca al cliente en un estado `REGISTRO SOLICITADO`. Luego el `ADMINISTRADOR DE LA TIENDA` recibe la notificación con la información del cliente y procede a aprobar (`REGISTRO APROBADO`) o denegar `REGISTRO DENEGADO` la solicitud.
+
+El diagrama de secuencias para la presente história es el siguiente:
+
+[plantuml, format="png", id="estados-solicitud"]
+....
+@startuml
+actor Cliente
+
+Cliente -> BOT: Solicitar reserva alquiler en el sistema
+BOT --> Cliente:
+
+actor Empleado
+BOT -> Empleado: Nueva solicitud de registro
+Empleado --> BOT: Aprobación/Rechazo
+BOT -> Cliente: Notificación del estado de la solicitud
+
+@enduml
+....
+
+#### Escenarios
+1. Video Disponible.
+2. Video No Disponible.
+3. Validación de datos ingresados por el usuario.
+
+#### Casos de Prueba
+
+*100.1.1 Validación de parámetros*
+Descripción: Al momento de registrarse la reserva, los siguientes campos son obligatorios: Nombres, Primer apellido, email, carnet identidad.
+
+En caso de que el `Cliente no ingrese uno de estos valores` no se debe proceder a enviar la solicitud.
+
+Pasos:
+
+1. Ingresar al BOT via Telegram y enviar el comando /start
+- Datos: NINGUNO
+- Resultado esperado: El BOT retorna un mensaje. "Bienvenido a la tienda de Videos que desea hacer:"
+*  Registro de Alquiler
+2. El `Cliente` envía el comando `/registrar`
+- Datos: comando `/registrar`
+- Resultado: El BOT pregunta por el nombre, apellido, email y carnet de identidad del cliente.
+3. El `Cliente` coloca o se equivoca e introduce un espacio en blanco o caracter especial.
+- Datos: Coloca `un espacion en blanco`
+- Resultado: El BOT pide nuevamente el nombre copmleto porque no puede ser espacios en blanco.
+4. El `Cliente` coloca carácteres no convencionales como emojis.
+- Datos: Coloca `Sergio Fernando 😀`
+- Resultado: El BOT le indica que no puede colocar caracteres especiales.
+
+### 102.1 - Solicitud de reserva video.
+
+*Autor*: Sergio Fernando Prudencio Veliz
+
+*Fecha*: 05/03/2022
+
+*Prioridad*: ALTA
+
+#### Descripción
+Un `Cliente` debe solicitar la reserva de un video por medio del bot, para esto debe enviar la fecha inicio y fecha fin de la solicitud, titulo de la pelicula, nombre,apellido,email y ci. Una vez enviada su solicitud un `Empleado de la tienda` procederá a autorizar o rechazar la solicitud del cliente, en caso de que la `Solicitud` sea rechazada se debe agregar una observación para que si es que procede el empleado realice las modificaciones correspondientes. Ademas el Bot tendra control de:
+* Disponibilidad de los videos en stock
+* Tiempo de renta de un video.
+
+La solicitud pasará pos los siguientes estados:
+
+* *SOLICITADA*: Cuando el cliente envía su solicitud al BOT y el BOT no la rechaza.
+* *NO VÁLIDO*: Cuando el cliente envía su solicitud al BOT y no cumple con los requisitos del registro, cuando introduce datos erroneos o cuando el video no se encuentra disponible.
+* *ACEPTADA*: Solicitud aprobada por persona de la tienda.
+* *RECHAZADA*: Solicitud rechazada por personal de la tienda.
+* *CANCELADA*: El usuario canceló una reserva solicitada ACEPTADA.
+
+El diagrama de estados para la `SOLICITUD` será:
+
+[plantuml, format="png", id="estados-solicitud"]
+....
+@startuml
+
+[*] --> SOLICITADA
+SOLICITADA --> NO_VALIDO
+NO_VALIDO --> [*]
+SOLICITADA -> ACEPTADA
+SOLICITADA -> RECHAZADA
+RECHAZADA --> [*]
+ACEPTADA -> CANCELADA
+ACEPTADA --> [*]
+CANCELADA --> [*]
+
+@enduml
+....
+
+#### Escenarios
+
+1. Solicitud de reserva.
+2. Cancelación de reserva de video(s).
+
+#### Casos de Prueba
+
+*101.1.1 Usuario solicita reserva de un video no disponible*
+
+Descripción: Un usuario desea obtener una reserva de un video que acaba de pasar de disponible a no disponible
+
+Pasos:
+
+1. Ingresar al BOT via Telegram y enviar el comando /registrar
+- Datos: NINGUNO
+- Resultado esperado: El BOT retorna un mensaje. "El video ya no se encuentra disponible"
 
 
