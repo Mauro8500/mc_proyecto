@@ -181,7 +181,7 @@ BOT -> Cliente: Notificación del estado de la solicitud
 
 #### Casos de Prueba
 
-*100.1.1 Validación de parámetros*
+*102.1.1 Validación de parámetros*
 Descripción: Al momento de registrarse la reserva, los siguientes campos son obligatorios: Nombres, Primer apellido, email, carnet identidad.
 
 En caso de que el `Cliente no ingrese uno de estos valores` no se debe proceder a enviar la solicitud.
@@ -249,7 +249,7 @@ CANCELADA --> [*]
 
 #### Casos de Prueba
 
-*101.1.1 Usuario solicita reserva de un video no disponible*
+*102.1.1 Usuario solicita reserva de un video no disponible*
 
 Descripción: Un usuario desea obtener una reserva de un video que acaba de pasar de disponible a no disponible
 
