@@ -254,8 +254,8 @@ BOT -> Cliente: Notificación del estado de la solicitud
 ....
 
 #### Escenarios
-1. Video Disponible.
-2. Video No Disponible.
+1. Registro exito Video Disponible.
+2. Registro fallido Video No Disponible.
 3. Validación de datos ingresados por el usuario.
 
 #### Casos de Prueba
@@ -284,6 +284,8 @@ Pasos:
 *102.1.2 Registro Exitoso*
 Descripcion: El registro ha sido realizado con exito.
 
+Pasos:
+
 1. Ingresar al BOT via Telegram y enviar el comando /start
 - Datos: NINGUNO
 - Resultado esperado: El BOT retorna un mensaje. "Bienvenido a la tienda de Videos que desea hacer:"
@@ -291,8 +293,23 @@ Descripcion: El registro ha sido realizado con exito.
 2. El `Cliente` envía el comando `/registrar`
 - Datos: comando `/registrar`
 3. El `Cliente` manda los datos correctos que solicito el BOT.
-- Datos: nombre, apellido, email y carnet de identidad
+- Datos: nombre, apellido, email, carnet de identidad y titulo de la pelicula
 - Resultado: Su registro de reserva fue enviado con exito.
+
+*102.1.3 Registro No exitoso*
+Descripcion: El registro no ha sido realizado con exito.
+
+Pasos:
+
+1. Ingresar al BOT via Telegram y enviar el comando /start
+- Datos: NINGUNO
+- Resultado esperado: El BOT retorna un mensaje. "Bienvenido a la tienda de Videos que desea hacer:"
+*  Registro de Alquiler
+2. El `Cliente` envía el comando `/registrar`
+- Datos: comando `/registrar`
+3. El `Cliente` manda los datos correctos que solicito el BOT.
+- Datos: nombre, apellido, email y carnet de identidad, titulo de la pelicula
+- Resultado: Notifica al cliente que le video ha dejado de estar disponible en stock.
 
 ### 102.1 - Solicitud de reserva video.
 
