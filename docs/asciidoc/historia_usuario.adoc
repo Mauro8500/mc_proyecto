@@ -276,10 +276,23 @@ Pasos:
 - Resultado: El BOT pregunta por el nombre, apellido, email y carnet de identidad del cliente.
 3. El `Cliente` coloca o se equivoca e introduce un espacio en blanco o caracter especial.
 - Datos: Coloca `un espacion en blanco`
-- Resultado: El BOT pide nuevamente el nombre copmleto porque no puede ser espacios en blanco.
+- Resultado: El BOT pide nuevamente el nombre completo porque no puede ser espacios en blanco.
 4. El `Cliente` coloca carácteres no convencionales como emojis.
 - Datos: Coloca `Sergio Fernando 😀`
 - Resultado: El BOT le indica que no puede colocar caracteres especiales.
+
+*102.1.2 Registro Exitoso*
+Descripcion: El registro ha sido realizado con exito.
+
+1. Ingresar al BOT via Telegram y enviar el comando /start
+- Datos: NINGUNO
+- Resultado esperado: El BOT retorna un mensaje. "Bienvenido a la tienda de Videos que desea hacer:"
+*  Registro de Alquiler
+2. El `Cliente` envía el comando `/registrar`
+- Datos: comando `/registrar`
+3. El `Cliente` manda los datos correctos que solicito el BOT.
+- Datos: nombre, apellido, email y carnet de identidad
+- Resultado: Su registro de reserva fue enviado con exito.
 
 ### 102.1 - Solicitud de reserva video.
 
@@ -337,6 +350,19 @@ Pasos:
 1. Ingresar al BOT via Telegram y enviar el comando /registrar
 - Datos: NINGUNO
 - Resultado esperado: El BOT retorna un mensaje. "El video ya no se encuentra disponible"
+
+*102.2 Solicitud Rechazada*
+Descripción: La solicitud fue rechazada por algun motivo y se notifica al cliente.
+-Datos: NINGUNO
+-Resultado: La solicitud fue rechazada por que no se agoto el stock.
+*102.3 Solicitud Aceptada*
+Descripción: La solicitud fue aceptada sin observaciones y se notifica la cliente.
+-Datos: NUNGUNO
+-Resultado: Notifica al cliente que la reserva de su video(s) ha sido procesada con exito y s enotifica al cliente.
+*102.4 Solicitud Cancelada*
+Descripción: El cliente selecciono cancelar la reserva
+-Datos: NINGUNO
+-Resultado: Notifica al empleado que cancelaron una reserva y muestra un mensaje al cliente de cancelacion con exito y se notifica al cliente.
 
 ### 103 - Perdida o no devolucion de una pelicula
 *Autor*: Damaris Blas
