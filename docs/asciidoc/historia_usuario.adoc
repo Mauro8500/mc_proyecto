@@ -6,7 +6,7 @@ Universidad Católica Boliviana.
 ## Introducción
 El presente documentO tendrá el detalle de todas las historías de usuario para la construcción de un BOT de CLUB DE VIDEOS.
 
-Se ha establecido que la funcionalidad mínima para la implementación será:
+00Se ha establecido que la funcionalidad mínima para la implementación será:
 
 Para el club de videos:
 
